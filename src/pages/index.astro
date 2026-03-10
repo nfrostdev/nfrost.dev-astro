@@ -1,0 +1,307 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import TechBadge from '../components/TechBadge.astro';
+
+import imgHippoManager   from '../assets/projects/28578acc-075f-4e65-911a-4d5a31c765ad_hippomanager.png';
+import imgSchedule       from '../assets/projects/217ee44f-7401-4c20-97d4-0df874372f27_schedule.webp';
+import imgAppointments   from '../assets/projects/2eeffb7d-0f17-44a5-b805-a95a870cd7c4_appointments.webp';
+import imgAup            from '../assets/projects/898d5010-108d-4125-9fce-a94b59315b34_aup.webp';
+import imgDha            from '../assets/projects/e8caa5ee-8b35-491e-b7bb-77df8d76d2db_dha.webp';
+import imgGla            from '../assets/projects/8ff6b12e-c4f8-493c-8242-ada5617f7ad2_gla.webp';
+import imgSignIn         from '../assets/projects/2c967c84-8720-44c0-bb82-57c8c566360b_signin.webp';
+import imgSummit         from '../assets/projects/9f3208ab-44cc-4aab-8662-5ca81aa5cf00_summit.webp';
+import imgTraining       from '../assets/projects/b3f7bfde-83d9-4ad1-8ed1-4bc2e8ff0620_training.webp';
+import imgDirectory      from '../assets/projects/a295a8f8-a1df-464d-9526-1a6234f6c854_directory.webp';
+import imgDepartments    from '../assets/projects/9e5eed70-872f-4df6-bc5f-5b332f8badd3_departments.webp';
+import imgEmployeePortal from '../assets/projects/959c01f8-a5c2-4a82-96ff-f72ae227b459_employeeportal.webp';
+import imgBranding       from '../assets/projects/e6054a9b-61c8-4904-9e82-5c4e09eef80e_branding.webp';
+import imgStaffDev       from '../assets/projects/c6b838a4-ac63-4bf8-8938-6105d716f139_staffdev.webp';
+
+const skills = [
+  { category: 'Languages', items: ['CSS', 'GraphQL', 'HTML', 'JavaScript', 'PHP', 'SCSS', 'TypeScript'] },
+  { category: 'Frameworks', items: ['Hugo', 'Laravel', 'Lumen', 'Nuxt', 'Vue.js'] },
+  { category: 'Infrastructure', items: ['Amazon Web Services', 'Apache', 'Cloudflare', 'Docker', 'Firebase', 'GitHub Actions', 'MySQL', 'Nginx', 'PostgreSQL'] },
+  { category: 'Tools', items: ['Claude', 'Figma', 'Git', 'Insomnia', 'Jira'] },
+];
+
+const projects = [
+  {
+    title: 'Hippo Manager 2.0',
+    client: 'Hippo Manager Software, Inc.',
+    description: 'Cloud-based practice management platform for veterinary clinics covering billing, scheduling, client management, reporting, and treatments. As Engineering Manager, I led the development team, managed AWS infrastructure, migrated the full local and cloud stack to Docker, and reduced AWS costs by over $6,000/month.',
+    image: imgHippoManager,
+    tags: ['Vue.js', 'Laravel', 'GraphQL', 'MySQL', 'AWS', 'Docker', 'Tailwind CSS'],
+  },
+  {
+    title: 'Course Schedule',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Displays and filters for-credit courses at Kalamazoo Valley Community College, syncing course data hourly from the college\'s central data store. I built the entire front-end, back-end API, and CLI seeder, including the data curation layer that untangles a legacy Oracle schema involving seven-table joins and convoluted column mappings.',
+    image: imgSchedule,
+    tags: ['Vue.js', '.NET', 'PostgreSQL', 'Oracle Database', 'Firebase', 'Docker', 'Tailwind CSS'],
+  },
+  {
+    title: 'Appointment Scheduling',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Lets students and staff select from appointment types across KVCC\'s academic departments and routes them to the internal scheduling system. I built it end-to-end, including a custom multi-system authentication pass-through to bridge single sign-on with the internal system\'s non-standard auth protocol.',
+    image: imgAppointments,
+    tags: ['Vue.js', 'Firebase', 'Apereo CAS', 'Tailwind CSS'],
+  },
+  {
+    title: 'Acceptable Use Policy Agreement',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Annual policy agreement required of all KVCC students and employees to access college equipment and services. I built the front-end user flow, an admin interface for record lookup by GUID with group-based access control, and the integration that enforces compliance and redirects users to their intended destination. A colleague handled the back-end API; together we replaced a legacy workflow that had been in place for years.',
+    image: imgAup,
+    tags: ['Vue.js', '.NET', 'PostgreSQL', 'Firebase', 'Apereo CAS', 'Docker', 'Tailwind CSS'],
+  },
+  {
+    title: 'Daily Mental Healthcare Checklist',
+    client: 'Personal Project',
+    description: 'A personal project inspired by a self-care poster, turned into a lightweight daily checklist that resets at midnight. No authentication, no tracking. I pared the original 50 items down by removing redundancies and rewrote the wording throughout to emphasize continuity rather than starting new habits.',
+    image: imgDha,
+    tags: ['Hugo', 'Firebase', 'Tailwind CSS'],
+  },
+  {
+    title: 'Grocery List App',
+    client: 'Personal Project',
+    description: 'A no-frills grocery list app: no ads, no account required. Supports dark/light mode and list sharing via the Navigator Share API. Sharing is handled through a generated query string rather than a backend, a deliberate tradeoff to avoid the ownership and auth complexity a database would introduce.',
+    image: imgGla,
+    tags: ['Vue.js', 'Firebase', 'Tailwind CSS'],
+  },
+  {
+    title: 'Sign In',
+    client: 'Kalamazoo Valley Community College',
+    description: 'I replaced a user portal flow that frustrated staff every single day. Previously they had to log in before they could even choose where they wanted to go. The new sign-in routes users directly to their intended service after authentication and surfaces notices for outages or upcoming downtime. I handled everything solo: prototyping, code, and CI/CD.',
+    image: imgSignIn,
+    tags: ['Vue.js', 'Firebase', 'Tailwind CSS'],
+  },
+  {
+    title: 'Summit',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Event site for KVCC\'s bi-annual all-employee Summit, covering the schedule and keynote speakers. Access is restricted via CAS authentication handled client-side. A collaborator led the content and I handled the code architecture, auth integration, and a schedule layout capable of displaying multiple concurrent sessions, the trickiest part of the project.',
+    image: imgSummit,
+    tags: ['Vue.js', 'Firebase', 'Apereo CAS', 'Tailwind CSS'],
+  },
+  {
+    title: 'Online Training',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Centralized hub for KVCC employee online training, consolidating previously scattered resources into a single maintainable location. A designer handled Figma prototypes, and I built the site with a colleague using Hugo. The search feature was written in vanilla JavaScript and was the most technically involved part of the project.',
+    image: imgTraining,
+    tags: ['Hugo', 'Firebase', 'Tailwind CSS'],
+  },
+  {
+    title: 'Employee Directory',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Searchable directory of current KVCC employees, and one half of a larger project alongside the Department Directory. I built the Vue.js front-end and component system; my colleague handled the .NET back-end API. The data pipeline ended up being the more interesting problem. Since the central data source is only accessible on restricted networks, we built a cron-driven CLI seeder that syncs employee data to an external database hourly.',
+    image: imgDirectory,
+    tags: ['Vue.js', '.NET', 'PostgreSQL', 'Oracle Database', 'Docker', 'Tailwind CSS'],
+  },
+  {
+    title: 'Department Directory',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Counterpart to the Employee Directory, helping users find the right department or group at KVCC. Since no formal department structure exists in the central data store, it includes an admin interface for managing that data directly. I built the Vue.js front-end and component system; a colleague handled the .NET public and admin APIs. The most complex piece was the keyword system, designed carefully to avoid database redundancy.',
+    image: imgDepartments,
+    tags: ['Vue.js', '.NET', 'MySQL', 'PostgreSQL', 'Apereo CAS', 'Docker', 'Tailwind CSS'],
+  },
+  {
+    title: 'Employee Portal',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Consolidated employee information that was previously scattered across KVCC\'s public site, intranet, and access portal, making it genuinely difficult for less technical staff to locate anything. Content is authored in Markdown rather than HTML, simplifying ongoing maintenance. I handled the architecture, search functionality, and deployment pipeline. A colleague led the enormous effort of collecting and categorizing the existing content.',
+    image: imgEmployeePortal,
+    tags: ['Laravel', 'Apereo CAS', 'Docker'],
+  },
+  {
+    title: 'Branding Site',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Self-serve logo and branding distribution site for KVCC, replacing a manual process where the Marketing team had to send assets to vendors and staff on request. I built the entire project, handled all image conversion and resizing, and opted for SVG over .ai/.eps to avoid repository bloat. Determining accessible contrast ratios for the brand colors turned out to be a surprisingly involved task.',
+    image: imgBranding,
+    tags: ['Vue.js', 'Docker', 'Tailwind CSS'],
+  },
+  {
+    title: 'Staff Development',
+    client: 'Kalamazoo Valley Community College',
+    description: 'Full-featured registration system for KVCC employee training and new hire onboarding. Supports event categorization, multiple facilitators, attendance tracking, sign-in sheets, and iCalendar export. A designer handled prototyping and most of the front-end; I owned the entire back-end MVC architecture and data model. My first project working predominantly on the back-end.',
+    image: imgStaffDev,
+    tags: ['Laravel', 'MySQL', 'Oracle Database', 'Apereo CAS'],
+  },
+];
+
+const experience = [
+  {
+    company: 'Hippo Manager Software, Inc.',
+    role: 'Engineering Manager',
+    period: '2022 - 2025',
+    location: '',
+    bullets: [
+      'Led the engineering team and managed AWS infrastructure, GitHub organization, and company-wide administrative responsibilities.',
+      'Reduced AWS costs by over $6,000/month through infrastructure refinements upon promotion.',
+      'Migrated the entire local development stack and eligible AWS infrastructure to Docker.',
+      'Drove product direction, created functional Figma prototypes, and gathered feature feedback directly from clients.',
+      'Maintained the platform through end of life following acquisition, navigating legacy interoperability constraints inherited from Hippo Manager 1.0.',
+    ],
+  },
+  {
+    company: 'Kalamazoo Valley Community College',
+    role: 'Technical Lead',
+    period: '2017 - 2022',
+    location: '',
+    bullets: [
+      'Shipped 11+ web applications end-to-end, spanning Vue.js front-ends, back-end APIs, CLI data seeders, and CI/CD pipelines.',
+      'Replaced legacy institutional systems, including a department directory from the early 2000s and several manual administrative workflows.',
+      'Navigated complex technical challenges including multi-system authentication pass-through and cron-based data seeding from network-restricted Oracle data sources.',
+      'Ran requirement-gathering meetings across academic departments, HR, and faculty, which taught me as much about institutional dynamics as it did about building software.',
+      'Worked closely with designers and back-end developers across most projects, coordinating between people who think about problems in very different ways.',
+    ],
+  },
+];
+---
+
+<Layout title="Nick Frost - Engineering Manager" description="Engineering manager based in Kalamazoo, MI, open to remote roles. Experienced leading engineering teams and building SaaS products and institutional web applications.">
+
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center pt-14">
+    <div class="max-w-5xl mx-auto px-6 py-24">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="text-2xl font-bold text-white tracking-tight mb-1">Nick Frost</p>
+        <p class="text-sm text-zinc-400 mb-4 tracking-widest uppercase">Engineering Manager</p>
+        <h1 class="text-2xl sm:text-[2.5rem] font-bold text-white leading-tight tracking-tight mb-6">
+          Software should work for people, not vice versa.
+        </h1>
+        <p class="text-lg text-zinc-400 leading-relaxed mb-6">
+          I've spent my career figuring out whether a problem is a people problem, a process
+          problem, or an architecture problem. Most of the time, it's the first two.
+          Based in Kalamazoo, MI.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center mb-8">
+          <a href="#contact" class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white text-zinc-950 text-sm font-semibold hover:bg-zinc-200 transition-colors min-h-[44px]">
+            Get in Touch
+          </a>
+          <a href="#projects" class="btn-secondary inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-zinc-500 bg-zinc-800/50 text-zinc-200 text-sm font-semibold hover:border-zinc-300 hover:text-white transition-colors min-h-[44px]">
+            View Projects
+          </a>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+          </span>
+          <span class="text-xs text-zinc-400">Available for work</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <Section id="about" title="About">
+      <div class="max-w-2xl mx-auto space-y-4 text-zinc-400 leading-relaxed" data-animate>
+        <p>
+          I've been managing people, projects, and processes for most of my career, starting with
+          running a print shop before moving into software. Once I moved into tech, I led the
+          engineering team at Hippo Manager Software and spent five years at Kalamazoo Valley
+          Community College building and shipping internal tools alongside designers, back-end
+          developers, and a rotating cast of institutional stakeholders.
+        </p>
+        <p>
+          I've spent enough time in the code to know what's genuinely hard and what just sounds
+          hard. I've built full-stack applications, managed cloud infrastructure, untangled legacy
+          systems, and made architectural decisions my team and I had to live with. That experience shapes how
+          I lead. It's a lot easier to earn a team's trust when you understand what you're asking
+          of them.
+        </p>
+        <p>
+          I studied visual communications before moving into tech, and having that background
+          alongside the ability to actually build what I'm evaluating is a combination that doesn't
+          come up often. Most people end up on one side or the other. Understanding hierarchy,
+          contrast, and user flow changes the conversations you're able to have, and being able to
+          implement those decisions means they rarely stop at the design stage. Outside of work, I
+          build small tools for myself, because I value privacy; I don't want my data harvested;
+          and most of the existing options are more app than I need.
+        </p>
+      </div>
+  </Section>
+
+  <!-- Projects -->
+  <Section id="projects" title="Projects">
+      <div>
+        {projects.map((project, i) => (
+          <ProjectCard {...project} isFirst={i === 0} />
+        ))}
+      </div>
+  </Section>
+
+  <!-- Experience -->
+  <Section id="experience" title="Experience">
+      <div class="max-w-2xl mx-auto space-y-10">
+        {experience.map(job => (
+          <ExperienceItem {...job} />
+        ))}
+      </div>
+      <div class="mt-12 max-w-2xl mx-auto" data-animate>
+        <p class="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-6">Skills & technologies</p>
+        <div class="space-y-4">
+          {skills.map(({ category, items }) => (
+            <div>
+              <p class="text-xs text-zinc-400 mb-2">{category}</p>
+              <div class="flex flex-wrap gap-x-2 gap-y-2.5">
+                {items.map(skill => (
+                  <TechBadge name={skill} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+  </Section>
+
+  <!-- Education -->
+  <Section title="Education">
+      <div class="max-w-2xl mx-auto space-y-6 text-sm text-center" data-animate>
+        <div>
+          <p class="font-semibold text-white">Associate of Applied Science, Visual Communications</p>
+          <p class="text-zinc-400">ITT Technical Institute</p>
+        </div>
+        <div>
+          <p class="font-semibold text-white">Vue.js 2: The Complete Guide</p>
+          <p class="text-zinc-400">Udemy · Online Course</p>
+        </div>
+      </div>
+  </Section>
+
+  <!-- Contact -->
+  <Section id="contact" title="Contact">
+      <div class="max-w-2xl mx-auto" data-animate>
+        <p class="text-zinc-400 mb-4 leading-relaxed">
+          I'm looking for work where I can make a real difference to how a team operates and
+          what it ships. Good software can genuinely improve people's lives, and I think the
+          organizations that understand that build better products than the ones just chasing
+          revenue. That's the kind of place I want to be.
+        </p>
+        <p class="text-zinc-400 mb-8 leading-relaxed">
+          If that sounds like what you're after, I'd love to hear from you.
+        </p>
+        <div class="flex flex-wrap justify-center gap-x-2 gap-y-2.5">
+          <a href="mailto:nfrost.dev@gmail.com" class="contact-link group/badge inline-flex items-center py-[11px] -my-[11px]">
+            <span class="tech-badge inline-flex items-center gap-1.5 text-sm px-4 py-1.5 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 group-hover/badge:bg-zinc-700 group-hover/badge:border-zinc-500 group-hover/badge:text-white transition-colors">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              nfrost.dev@gmail.com
+            </span>
+          </a>
+          <a href="https://github.com/nfrostdev" target="_blank" rel="noopener noreferrer" class="contact-link group/badge inline-flex items-center py-[11px] -my-[11px]">
+            <span class="tech-badge inline-flex items-center gap-1.5 text-sm px-4 py-1.5 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 group-hover/badge:bg-zinc-700 group-hover/badge:border-zinc-500 group-hover/badge:text-white transition-colors">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                <path d="M9 18c-4.51 2-5-2-7-2"/>
+              </svg>
+              github.com/nfrostdev <span class="sr-only">(opens in new tab)</span>
+            </span>
+          </a>
+        </div>
+      </div>
+  </Section>
+
+</Layout>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  company: string;
+  role: string;
+  period: string;
+  location?: string;
+  bullets: string[];
+}
+
+const { company, role, period, location, bullets } = Astro.props;
+---
+
+<div class="relative pl-6 border-l border-zinc-700" data-animate>
+  <div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-zinc-600 border-2 border-zinc-950" aria-hidden="true"></div>
+  <div class="mb-3">
+    <h3 class="font-bold text-white tracking-tight">{role}</h3>
+    <p class="text-sm text-zinc-300 font-medium">{company}{location && ` · ${location}`} · {period}</p>
+  </div>
+  <ul class="space-y-1.5 text-sm text-zinc-400 leading-relaxed">
+    {bullets.map(b => (
+      <li class="flex gap-2">
+        <span class="text-zinc-400 shrink-0 mt-0.5" aria-hidden="true">-</span>
+        <span>{b}</span>
+      </li>
+    ))}
+  </ul>
+</div>

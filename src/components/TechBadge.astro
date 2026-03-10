@@ -1,0 +1,41 @@
+---
+import { iconMap, urlMap } from '../lib/techIcons';
+
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+const icon = iconMap[name];
+const url = urlMap[name];
+
+const pillClass = "tech-badge inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700";
+---
+
+{url ? (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="group/badge inline-flex items-center py-[11px] -my-[11px]"
+    aria-label={`${name} (opens in new tab)`}
+  >
+    <span class={`${pillClass} group-hover/badge:bg-zinc-700 group-hover/badge:border-zinc-500 group-hover/badge:text-white transition-colors`}>
+      {icon && (
+        <svg role="img" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
+          <path d={icon.path} />
+        </svg>
+      )}
+      <span aria-hidden="true">{name}</span>
+    </span>
+  </a>
+) : (
+  <span class={pillClass}>
+    {icon && (
+      <svg role="img" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
+        <path d={icon.path} />
+      </svg>
+    )}
+    {name}
+  </span>
+)}
