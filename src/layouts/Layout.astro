@@ -1,6 +1,10 @@
 ---
 import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
 import onestFontUrl from '@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url';
+import Logo from '../components/Logo.astro';
+import ThemeScript from '../components/ThemeScript.astro';
+import ThemeIcons from '../components/icons/ThemeIcons.astro';
 
 interface Props {
   title: string;
@@ -8,8 +12,6 @@ interface Props {
 }
 
 const { title, description = 'Software engineer portfolio' } = Astro.props;
-
-const themeIcons = `<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -26,7 +28,7 @@ const navLinks = [
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <link rel="preload" href={onestFontUrl} as="font" type="font/woff2" crossorigin />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
     <link rel="canonical" href="https://www.nfrost.dev/" />
     <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#eff3f8" media="(prefers-color-scheme: light)" />
@@ -40,14 +42,23 @@ const navLinks = [
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <title>{title}</title>
-    <!-- Prevent flash of wrong theme -->
-    <script is:inline>
-      const stored = localStorage.getItem('theme');
-      const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      const theme = stored || system;
-      document.documentElement.setAttribute('data-theme', theme);
-      document.querySelector('link[rel="icon"]').setAttribute('href', theme === 'dark' ? '/favicon-dark.svg' : '/favicon.svg');
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nick Frost",
+      "jobTitle": "Engineering Manager",
+      "url": "https://www.nfrost.dev",
+      "email": "nfrost.dev@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kalamazoo",
+        "addressRegion": "MI",
+        "addressCountry": "US"
+      },
+      "sameAs": ["https://github.com/nfrostdev"]
+    })} />
+    <ViewTransitions />
+    <ThemeScript />
   </head>
   <body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -55,10 +66,8 @@ const navLinks = [
     <header class="fixed top-0 inset-x-0 z-50 border-b border-zinc-800/50 backdrop-blur-sm bg-zinc-950/80">
       <nav aria-label="Primary" class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
         <!-- Logo + name -->
-        <a href="/" class="flex items-center gap-3 hover:opacity-75 transition-opacity" aria-label="Nick Frost - Home">
-          <svg class="site-logo h-6 w-auto" viewBox="0 0 800 492.3" xmlns="http://www.w3.org/2000/svg" aria-label="NF" role="img">
-            <polygon fill="currentColor" points="0,400 0,492.3 215.4,492.3 307.7,492.3 307.7,492.3 307.7,184.6 492.3,492.3 584.6,492.3 584.6,292.3 738.5,292.3 738.5,200 584.6,200 584.6,92.3 800,92.3 800,0 584.6,0 492.3,0 492.3,0 492.3,307.7 307.7,0 215.4,0 215.4,200 61.5,200 61.5,292.3 215.4,292.3 215.4,400"/>
-          </svg>
+        <a href="/" class="logo-link flex items-center gap-3" aria-label="Nick Frost - Home">
+          <Logo class="site-logo h-6 w-auto" />
           <div class="flex flex-col">
             <span class="text-sm font-semibold text-zinc-100 tracking-tight leading-none translate-y-px">Nick Frost</span>
             <span class="text-xs text-zinc-400">Engineering Manager</span>
@@ -77,7 +86,7 @@ const navLinks = [
             aria-label="Toggle light/dark mode"
             class="relative ml-2 inline-flex items-center justify-center w-11 h-11 rounded text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
           >
-            <Fragment set:html={themeIcons} />
+            <ThemeIcons />
             <span class="theme-tooltip" aria-hidden="true">
               <span class="tooltip-light">Light Mode</span>
               <span class="tooltip-dark">Dark Mode</span>
@@ -92,7 +101,7 @@ const navLinks = [
             aria-label="Toggle light/dark mode"
             class="relative inline-flex items-center justify-center w-11 h-11 rounded text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
           >
-            <Fragment set:html={themeIcons} />
+            <ThemeIcons />
             <span class="theme-tooltip" aria-hidden="true">
               <span class="tooltip-light">Light Mode</span>
               <span class="tooltip-dark">Dark Mode</span>
@@ -148,6 +157,9 @@ const navLinks = [
         <div class="flex items-center gap-4">
           <a href="https://github.com/nfrostdev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center min-h-[44px] hover:text-zinc-300 transition-colors">
             GitHub <span class="sr-only">(opens in new tab)</span>
+          </a>
+          <a href="https://github.com/nfrostdev/nfrost.dev-astro" target="_blank" rel="noopener noreferrer" class="inline-flex items-center min-h-[44px] hover:text-zinc-300 transition-colors">
+            Source <span class="sr-only">(opens in new tab)</span>
           </a>
           <a href="mailto:nfrost.dev@gmail.com" class="inline-flex items-center min-h-[44px] hover:text-zinc-300 transition-colors">Email</a>
         </div>

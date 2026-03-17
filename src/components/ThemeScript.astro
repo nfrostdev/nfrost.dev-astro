@@ -1,0 +1,12 @@
+<!-- Prevent flash of wrong theme -->
+<script is:inline>
+  function applyTheme() {
+    const stored = localStorage.getItem('theme');
+    const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const theme = stored || system;
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelector('link[rel="icon"]')?.setAttribute('href', theme === 'dark' ? '/favicon-dark.svg' : '/favicon.svg');
+  }
+  applyTheme();
+  document.addEventListener('astro:after-swap', applyTheme);
+</script>

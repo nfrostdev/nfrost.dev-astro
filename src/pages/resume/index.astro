@@ -1,0 +1,57 @@
+---
+import ResumeLayout from '../../components/ResumeLayout.astro';
+import { skills } from '../../lib/data';
+
+const experience = [
+  {
+    company: 'Hippo Manager Software, Inc.',
+    role: 'Engineering Manager',
+    period: '2022 - 2025',
+    bullets: [
+      'Led the engineering team and managed AWS infrastructure, GitHub organization, and technical administration across the company.',
+      'Reduced AWS costs by over $6,000/month through infrastructure refinements upon promotion.',
+      'Migrated the entire local development stack and eligible AWS infrastructure to Docker.',
+      'Drove product direction, created Figma prototypes, and gathered feature feedback directly from veterinary clients.',
+      'Maintained the platform through end of life after acquisition by Shepherd Veterinary Software.',
+    ],
+  },
+  {
+    company: 'Kalamazoo Valley Community College',
+    role: 'Technical Lead',
+    period: '2017 - 2022',
+    bullets: [
+      'Shipped 11+ web applications end-to-end, spanning Vue.js front-ends, back-end APIs, data seeders, and CI/CD.',
+      'Replaced legacy institutional systems, including a department directory from the early 2000s and several manual administrative workflows.',
+      'Navigated complex technical challenges including multi-system authentication pass-through and cron-based data seeding from network-restricted Oracle data sources.',
+      'Ran requirement-gathering meetings across academic departments, HR, and faculty.',
+      'Collaborated with designers and back-end developers, bridging different problem-solving perspectives.',
+    ],
+  },
+];
+
+const projects = [
+  {
+    name: 'Hippo Manager 2.0',
+    company: 'Hippo Manager Software, Inc.',
+    tech: 'Vue.js, Laravel, GraphQL, MySQL, Amazon Web Services (AWS), Docker, Tailwind CSS',
+    description: 'Cloud-based practice management platform for veterinary clinics covering billing, scheduling, client management, reporting, and treatments.',
+  },
+  {
+    name: 'Course Schedule',
+    company: 'Kalamazoo Valley Community College',
+    tech: 'Vue.js, .NET, PostgreSQL, Oracle Database, Firebase, Docker, Tailwind CSS',
+    description: 'Displays and filters for-credit courses, syncing data hourly from a legacy Oracle schema involving seven-table joins and convoluted column mappings.',
+  },
+];
+
+const keywords = 'Engineering Manager, Technical Lead, Software Engineering, Team Leadership, Vue.js, Laravel, JavaScript, TypeScript, PHP, GraphQL, CSS, HTML, SCSS, Astro, Hugo, Nuxt, Tailwind CSS, Amazon Web Services, AWS, Docker, MySQL, PostgreSQL, Firebase, Cloudflare, GitHub Actions, Apache, Nginx, CI/CD, Figma, Git, Jira, Infrastructure Management, Agile, SaaS';
+---
+
+<ResumeLayout
+  title="Resume - Nick Frost"
+  description="Resume for Nick Frost, Engineering Manager based in Kalamazoo, MI."
+  keywords={keywords}
+  experience={experience}
+  projects={projects}
+  skills={skills}
+/>

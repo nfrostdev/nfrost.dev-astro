@@ -1,0 +1,35 @@
+---
+import ResumeLayout from '../../components/ResumeLayout.astro';
+
+export async function getStaticPaths() {
+  const files = import.meta.glob('../../data/resumes/*.json', { eager: true });
+  return Object.entries(files)
+    .filter(([path]) => !path.includes('/_example.json'))
+    .map(([path, mod]) => {
+      const slug = path.split('/').pop()!.replace('.json', '');
+      const data = mod as Record<string, any>;
+      return { params: { slug }, props: { data } };
+    });
+}
+
+const { data } = Astro.props;
+
+const keywords = [
+  ...new Set([
+    data.position,
+    ...data.skills.flatMap((s: any) => s.items),
+    'Engineering Manager', 'Technical Lead', 'Software Engineering',
+    'CI/CD', 'Infrastructure Management', 'Agile', 'SaaS',
+  ]),
+].join(', ');
+---
+
+<ResumeLayout
+  title={`Resume - Nick Frost | ${data.position}`}
+  description={`Resume for Nick Frost, tailored for ${data.position} at ${data.company}.`}
+  keywords={keywords}
+  noindex={true}
+  experience={data.experience}
+  projects={data.projects}
+  skills={data.skills}
+/>

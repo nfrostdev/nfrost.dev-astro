@@ -1,0 +1,493 @@
+---
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import onestFontUrl from '@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url';
+import Logo from './Logo.astro';
+import ThemeScript from './ThemeScript.astro';
+import ThemeIcons from './icons/ThemeIcons.astro';
+import GlobeIcon from './icons/Globe.astro';
+import EmailIcon from './icons/Email.astro';
+import GitHubIcon from './icons/GitHub.astro';
+
+interface SkillGroup {
+  category: string;
+  items: string[];
+}
+
+interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  bullets: string[];
+}
+
+interface Project {
+  name: string;
+  company: string;
+  tech: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  noindex?: boolean;
+  experience: Experience[];
+  projects: Project[];
+  skills: SkillGroup[];
+}
+
+const { title, description, keywords, noindex = false, experience, projects, skills } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="preload" href={onestFontUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <title>{title}</title>
+    <ViewTransitions />
+    <ThemeScript />
+  </head>
+  <body class="resume-page bg-zinc-950 text-zinc-100 font-sans antialiased">
+
+    <!-- Toolbar -->
+    <div class="resume-toolbar">
+      <a href="/" class="resume-toolbar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        Back to Site
+      </a>
+      <div class="resume-toolbar-right">
+        <button id="theme-toggle" aria-label="Toggle light/dark mode" class="resume-toolbar-link">
+          <ThemeIcons />
+        </button>
+        <button id="print-btn" class="resume-toolbar-link" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+          Print / Save PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Paper -->
+    <div class="resume-paper">
+      <!-- Header -->
+      <div class="resume-header">
+        <div class="resume-header-inner">
+          <div class="resume-identity">
+            <Logo class="resume-logo" />
+            <div>
+              <p class="resume-name">Nick Frost</p>
+              <p class="resume-title">Engineering Manager</p>
+            </div>
+          </div>
+          <div class="resume-contact">
+            <span class="resume-contact-item">
+              <GlobeIcon />
+              www.nfrost.dev
+            </span>
+            <span class="resume-contact-item">
+              <EmailIcon size={13} />
+              nfrost.dev@gmail.com
+            </span>
+            <span class="resume-contact-item">
+              <GitHubIcon size={13} />
+              github.com/nfrostdev
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-body">
+        <!-- Experience -->
+        <section class="resume-section">
+          <h2 class="resume-heading">Experience</h2>
+          <div class="resume-experience-grid">
+            {experience.map(job => (
+              <div>
+                <p class="resume-company">{job.company}</p>
+                <p class="resume-role">{job.role} | {job.period}</p>
+                <ul class="resume-bullets">
+                  {job.bullets.map(bullet => <li>{bullet}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Notable Projects -->
+        <section class="resume-section">
+          <h2 class="resume-heading">Notable Projects</h2>
+          <div class="resume-experience-grid">
+            {projects.map(project => (
+              <div>
+                <p class="resume-company">{project.name}</p>
+                <p class="resume-role">{project.company}</p>
+                <p class="resume-project-tags">{project.tech}</p>
+                <p class="resume-project-desc">{project.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="resume-section">
+          <h2 class="resume-heading">Skills</h2>
+          <div class="resume-skills-grid">
+            {skills.map(({ category, items }) => (
+              <div>
+                <p class="resume-skill-category">{category}</p>
+                <ul class="resume-skill-list">
+                  {items.map(item => <li>{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div class="resume-footer">
+        <Logo class="resume-footer-logo" />
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        document.querySelector('link[rel="icon"]')?.setAttribute('href', next === 'dark' ? '/favicon-dark.svg' : '/favicon.svg');
+      });
+      document.getElementById('print-btn')?.addEventListener('click', () => window.print());
+    </script>
+  </body>
+</html>
+
+<style>
+  /* Page background */
+  .resume-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem 3rem;
+  }
+
+  /* Toolbar */
+  .resume-toolbar {
+    width: 100%;
+    max-width: 51rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+  }
+  .resume-toolbar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    color: #a1a1aa;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s;
+    font-family: inherit;
+    min-height: 44px;
+  }
+  .resume-toolbar-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  :global(html[data-theme="light"]) .resume-toolbar-link {
+    color: #52525b;
+  }
+  :global(html[data-theme="light"]) .resume-toolbar-link:hover {
+    color: #09090b;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  .resume-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* Paper — always light regardless of theme */
+  .resume-paper {
+    width: 100%;
+    max-width: 51rem;
+    background-color: #ffffff;
+    border: 1px solid #27272a;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.3),
+      0 1px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  :global(html[data-theme="light"]) .resume-paper {
+    border-color: #e4e4e7;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.08),
+      0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Header */
+  .resume-header {
+    background-color: #003DA6;
+    padding: 1rem 2rem;
+  }
+  .resume-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .resume-identity {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  :global(.resume-logo) {
+    height: 1.75rem;
+    width: auto;
+    color: #ffffff;
+  }
+  .resume-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .resume-title {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .resume-contact {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .resume-contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Footer */
+  .resume-footer {
+    background-color: #003DA6;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+  }
+  :global(.resume-footer-logo) {
+    height: 1rem;
+    width: auto;
+    color: #ffffff;
+  }
+
+  /* Body */
+  .resume-body {
+    padding: 2rem;
+  }
+
+  /* Sections */
+  .resume-section {
+    margin-bottom: 2rem;
+  }
+  .resume-section:last-child {
+    margin-bottom: 0;
+  }
+  .resume-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #003DA6;
+    letter-spacing: -0.015em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e4e4e7;
+    margin-bottom: 1rem;
+  }
+
+  /* Experience */
+  .resume-experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .resume-company {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #09090b;
+    letter-spacing: -0.01em;
+  }
+  .resume-role {
+    font-size: 0.8125rem;
+    color: #52525b;
+    margin-bottom: 0.5rem;
+  }
+  .resume-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .resume-bullets li {
+    font-size: 0.8125rem;
+    color: #3f3f46;
+    line-height: 1.5;
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.25rem;
+  }
+  .resume-bullets li::before {
+    content: '\00BB';
+    position: absolute;
+    left: 0;
+  }
+
+  /* Projects */
+  .resume-project-tags {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: #003DA6;
+    margin-bottom: 0.25rem;
+  }
+  .resume-project-desc {
+    font-size: 0.8125rem;
+    color: #3f3f46;
+    line-height: 1.5;
+  }
+
+  /* Skills */
+  .resume-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .resume-skill-category {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #09090b;
+    margin-bottom: 0.5rem;
+  }
+  .resume-skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .resume-skill-list li {
+    font-size: 0.8125rem;
+    color: #3f3f46;
+    line-height: 1.6;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .resume-skill-list li::before {
+    content: '\00BB';
+    position: absolute;
+    left: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .resume-header {
+      padding: 1rem 1rem;
+    }
+    .resume-header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .resume-body {
+      padding: 1.5rem 1.25rem;
+    }
+    .resume-experience-grid {
+      grid-template-columns: 1fr;
+    }
+    .resume-skills-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Print */
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  @media print {
+    .resume-page {
+      padding: 0;
+      min-height: auto;
+      display: block;
+      background: #ffffff !important;
+    }
+    .resume-page::after {
+      display: none !important;
+    }
+    .resume-toolbar {
+      display: none !important;
+    }
+    .resume-paper {
+      max-width: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      min-height: 100vh;
+    }
+    .resume-header,
+    .resume-footer {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding: 1rem 1.5rem;
+    }
+    .resume-header-inner {
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 1rem;
+    }
+    .resume-contact {
+      flex-wrap: nowrap !important;
+      gap: 1rem;
+    }
+    .resume-contact span {
+      font-size: 0.75rem;
+    }
+    .resume-body {
+      padding: 1.5rem;
+    }
+    .resume-section {
+      margin-bottom: 1rem;
+    }
+    .resume-heading {
+      margin-bottom: 0.5rem;
+    }
+    .resume-experience-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .resume-skills-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+  }
+</style>

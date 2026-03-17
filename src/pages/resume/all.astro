@@ -1,0 +1,227 @@
+---
+import '../../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import onestFontUrl from '@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url';
+import ThemeScript from '../../components/ThemeScript.astro';
+import ThemeIcons from '../../components/icons/ThemeIcons.astro';
+
+const files = import.meta.glob('../../data/resumes/*.json', { eager: true });
+
+const resumes = Object.entries(files)
+  .filter(([path]) => !path.includes('/_example.json'))
+  .map(([path, mod]) => {
+    const slug = path.split('/').pop()!.replace('.json', '');
+    const data = mod as Record<string, any>;
+    return { slug, ...data };
+  })
+  .sort((a, b) => b.applied.localeCompare(a.applied));
+
+const statusColors: Record<string, string> = {
+  applied: '#3b82f6',
+  interviewing: '#f59e0b',
+  offered: '#22c55e',
+  rejected: '#ef4444',
+  withdrawn: '#6b7280',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preload" href={onestFontUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <title>All Resumes - Nick Frost</title>
+    <ViewTransitions />
+    <ThemeScript />
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+    <div class="all-resumes">
+      <div class="all-resumes-header">
+        <div>
+          <h1>Tailored Resumes</h1>
+          <p class="all-resumes-subtitle">{resumes.length} resume{resumes.length !== 1 ? 's' : ''}</p>
+        </div>
+        <div class="all-resumes-actions">
+          <a href="/resume" class="all-resumes-link">Master Resume</a>
+          <button id="theme-toggle" aria-label="Toggle light/dark mode" class="all-resumes-link">
+            <ThemeIcons />
+          </button>
+        </div>
+      </div>
+
+      {resumes.length === 0 ? (
+        <p class="all-resumes-empty">No tailored resumes yet. Add a JSON file to <code>src/data/resumes/</code> to get started.</p>
+      ) : (
+        <div class="all-resumes-grid">
+          {resumes.map(resume => (
+            <a href={`/resume/${resume.slug}`} class="resume-card">
+              <div class="resume-card-top">
+                <span class="resume-card-status" style={`background-color: ${statusColors[resume.status] || '#6b7280'}`}>
+                  {resume.status}
+                </span>
+                <span class="resume-card-date">{resume.applied}</span>
+              </div>
+              <p class="resume-card-position">{resume.position}</p>
+              <p class="resume-card-company">{resume.company}</p>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <script>
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        document.querySelector('link[rel="icon"]')?.setAttribute('href', next === 'dark' ? '/favicon-dark.svg' : '/favicon.svg');
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .all-resumes {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .all-resumes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .all-resumes-subtitle {
+    font-size: 0.875rem;
+    color: #a1a1aa;
+    margin-top: 0.25rem;
+  }
+  :global(html[data-theme="light"]) .all-resumes-subtitle {
+    color: #71717a;
+  }
+
+  .all-resumes-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .all-resumes-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    color: #a1a1aa;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s;
+    font-family: inherit;
+    min-height: 44px;
+  }
+  .all-resumes-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  :global(html[data-theme="light"]) .all-resumes-link {
+    color: #52525b;
+  }
+  :global(html[data-theme="light"]) .all-resumes-link:hover {
+    color: #09090b;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .all-resumes-empty {
+    font-size: 0.875rem;
+    color: #71717a;
+  }
+  .all-resumes-empty code {
+    font-size: 0.8125rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+  }
+
+  .all-resumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  .resume-card {
+    display: block;
+    text-decoration: none;
+    padding: 1rem;
+    border: 1px solid #27272a;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  .resume-card:hover {
+    border-color: #3f3f46;
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+  :global(html[data-theme="light"]) .resume-card {
+    border-color: #e4e4e7;
+  }
+  :global(html[data-theme="light"]) .resume-card:hover {
+    border-color: #d4d4d8;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  .resume-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .resume-card-status {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .resume-card-date {
+    font-size: 0.75rem;
+    color: #71717a;
+  }
+
+  .resume-card-position {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #fafafa;
+    letter-spacing: -0.01em;
+  }
+  :global(html[data-theme="light"]) .resume-card-position {
+    color: #09090b;
+  }
+
+  .resume-card-company {
+    font-size: 0.8125rem;
+    color: #a1a1aa;
+    margin-top: 0.125rem;
+  }
+  :global(html[data-theme="light"]) .resume-card-company {
+    color: #71717a;
+  }
+</style>

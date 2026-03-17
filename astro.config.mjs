@@ -12,5 +12,10 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [sitemap()]
+  integrations: [sitemap({
+    filter: (page) => {
+      const path = new URL(page).pathname.replace(/\/$/, '');
+      return path === '/resume' || !path.startsWith('/resume/');
+    },
+  })]
 });

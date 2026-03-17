@@ -37,6 +37,19 @@ html[data-theme="light"] body::after  { opacity: 0.02; }
 html[data-theme="light"] .site-logo   { color: #003DA6; }
 html[data-theme="dark"]  .site-logo   { color: #ffffff; }
 
+/* Logo spin: 180° on hover, completes 360° on leave */
+.site-logo {
+  transition: transform 0.4s ease;
+}
+.logo-link:hover .site-logo,
+.logo-link:focus-visible .site-logo {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-logo { transition: none; }
+}
+
 html[data-theme="light"] :focus-visible {
   outline-color: #003DA6;
 }
@@ -216,4 +229,28 @@ button:focus-visible .theme-tooltip { opacity: 1; }
   outline: 2px solid #ffffff;
   outline-offset: 3px;
   border-radius: 3px;
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+
+@media print {
+  body::after { display: none !important; }
+
+  body > header, body > footer, .skip-link,
+  #lightbox, #theme-toggle, #theme-toggle-mobile,
+  #menu-toggle, #mobile-menu,
+  .animate-ping { display: none !important; }
+
+  main { padding-top: 0 !important; }
+
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  img { max-width: 100% !important; page-break-inside: avoid; }
+
+  h1, h2, h3 { page-break-after: avoid; }
 }
