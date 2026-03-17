@@ -73,7 +73,6 @@ The resume system supports creating tailored versions for specific job applicati
   "company": "Company Name",
   "position": "Job Title",
   "applied": "2026-03-17",
-  "status": "applied",
   "url": "https://example.com/jobs/123",
   "experience": [
     {
@@ -104,7 +103,6 @@ The resume system supports creating tailored versions for specific job applicati
 | `company`    | Company you're applying to                                     |
 | `position`   | Job title                                                      |
 | `applied`    | Date applied (YYYY-MM-DD), used for sorting on the list page   |
-| `status`     | One of: `applied`, `interviewing`, `offered`, `rejected`, `withdrawn` |
 | `url`        | Link to the job posting                                        |
 | `experience` | Full replacement of the experience section                     |
 | `projects`   | Full replacement of the notable projects section               |

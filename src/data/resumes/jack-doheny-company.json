@@ -1,0 +1,52 @@
+{
+  "company": "Jack Doheny Company",
+  "position": "IT Manager",
+  "applied": "2026-03-17",
+  "url": "https://www.indeed.com/viewjob?jk=1354ce872810d783",
+  "experience": [
+    {
+      "company": "Hippo Manager Software, Inc.",
+      "role": "Engineering Manager",
+      "period": "2022 - 2025",
+      "bullets": [
+        "Managed IT operations, AWS infrastructure, and technical administration for a cloud-based SaaS platform serving veterinary clinics nationwide.",
+        "Led and mentored the engineering team, providing guidance on technical issues, prioritizing workload, and strengthening database, integration, and deployment capabilities.",
+        "Reduced AWS costs by over $6,000/month through infrastructure analysis and optimization across cloud services.",
+        "Migrated the entire development and production stack to Docker, improving system reliability, scalability, and deployment consistency.",
+        "Coordinated vendor relationships and managed technology contracts through platform end-of-life after acquisition by Shepherd Veterinary Software."
+      ]
+    },
+    {
+      "company": "Kalamazoo Valley Community College",
+      "role": "Technical Lead",
+      "period": "2017 - 2022",
+      "bullets": [
+        "Built and maintained 11+ internal applications end-to-end, including front-end interfaces, back-end APIs, database design, and CI/CD pipelines.",
+        "Developed system integrations between enterprise platforms, including cron-based data synchronization from network-restricted Oracle databases with complex multi-table joins.",
+        "Replaced legacy institutional systems with modern web applications, automating manual administrative workflows across multiple departments.",
+        "Ran requirement-gathering meetings across HR, academic departments, and faculty to align technology solutions with operational needs.",
+        "Collaborated cross-functionally with designers and developers, translating business requirements into reliable, maintainable systems."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Hippo Manager 2.0",
+      "company": "Hippo Manager Software, Inc.",
+      "tech": "Vue.js, Laravel, GraphQL, MySQL, Amazon Web Services (AWS), Docker, Tailwind CSS",
+      "description": "Cloud-based enterprise platform covering billing, scheduling, client management, reporting, and treatments, supported by MySQL databases and AWS infrastructure."
+    },
+    {
+      "name": "Course Schedule",
+      "company": "Kalamazoo Valley Community College",
+      "tech": "Vue.js, .NET, PostgreSQL, Oracle Database, Firebase, Docker, Tailwind CSS",
+      "description": "Enterprise data integration application syncing course data hourly from a legacy Oracle schema involving seven-table joins, with PostgreSQL for application data and dynamic filtering UI."
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["CSS", "GraphQL", "HTML", "JavaScript", "PHP", "SQL", "TypeScript"] },
+    { "category": "Frameworks", "items": ["Laravel", "Lumen", "Nuxt", "Tailwind CSS", "Vue.js"] },
+    { "category": "Infrastructure", "items": ["Amazon Web Services", "Apache", "Cloudflare", "Docker", "Firebase", "GitHub Actions", "MySQL", "Nginx", "PostgreSQL"] },
+    { "category": "Tools", "items": ["Claude", "Figma", "Git", "Insomnia", "Jira"] }
+  ]
+}
