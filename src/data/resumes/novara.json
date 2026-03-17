@@ -10,10 +10,10 @@
       "period": "2022 - 2025",
       "bullets": [
         "Managed the engineering team in a Scrum environment, owning sprint planning, backlog prioritization, and delivery accountability for a cloud-based SaaS platform.",
-        "Led architecture and code review across a Vue.js front-end, PHP/Laravel back-end, and AWS infrastructure, maintaining quality standards while shipping predictably.",
-        "Reduced AWS costs by over $6,000/month and migrated development and production environments to Docker, improving deployment consistency and cost efficiency.",
-        "Drove product direction cross-functionally with design, operations, and clients. Created Figma prototypes and gathered feedback directly from end users.",
-        "Managed vendor relationships and external consulting engagements through platform end-of-life after acquisition by Shepherd Veterinary Software."
+        "Led architecture and code review across a Vue.js front-end, PHP/Laravel back-end, and AWS infrastructure.",
+        "Reduced AWS costs by over $6,000/month and migrated environments to Docker, improving deployment consistency.",
+        "Drove product direction cross-functionally with design, operations, and clients. Gathered feedback directly from end users.",
+        "Managed vendor relationships and consulting engagements through platform end-of-life after acquisition."
       ]
     },
     {
@@ -22,10 +22,10 @@
       "period": "2017 - 2022",
       "bullets": [
         "Shipped 11+ web applications end-to-end, spanning Vue.js front-ends, Node.js and PHP back-end APIs, database design, and CI/CD pipelines.",
-        "Replaced legacy institutional systems with modern web applications, automating manual administrative workflows and improving operational efficiency across departments.",
-        "Built system integrations including cron-based data synchronization from network-restricted Oracle databases with complex multi-table joins.",
-        "Ran cross-functional requirement-gathering meetings across HR, academic departments, and faculty, translating business needs into technical solutions.",
-        "Mentored developers and collaborated across teams, bridging design, development, and stakeholder perspectives to deliver reliable, maintainable software."
+        "Replaced legacy institutional systems with modern web applications, automating manual workflows across departments.",
+        "Built system integrations including cron-based data synchronization from network-restricted Oracle databases.",
+        "Ran cross-functional requirement-gathering across HR, academic departments, and faculty, translating business needs into technical solutions.",
+        "Mentored developers and collaborated across teams to deliver reliable, maintainable software."
       ]
     }
   ],
@@ -34,18 +34,18 @@
       "company": "Hippo Manager Software, Inc.",
       "name": "Hippo Manager 2.0",
       "tech": "Vue.js, Laravel, GraphQL, MySQL, Amazon Web Services (AWS), Docker, Tailwind CSS",
-      "description": "Cloud-based SaaS platform for veterinary clinics covering billing, scheduling, client management, reporting, and treatments. Built with Vue.js, Laravel/GraphQL API, and AWS infrastructure."
+      "description": "Cloud-based SaaS platform for veterinary clinics covering billing, scheduling, client management, reporting, and treatments."
     },
     {
       "company": "Kalamazoo Valley Community College",
       "name": "Course Schedule",
       "tech": "Vue.js, .NET, PostgreSQL, Oracle Database, Firebase, Docker, Tailwind CSS",
-      "description": "Data-driven application syncing course data hourly from a legacy Oracle schema involving seven-table joins, with a Vue.js filtering interface and PostgreSQL application layer."
+      "description": "Displays and filters for-credit courses, syncing data hourly from a legacy Oracle schema involving seven-table joins."
     }
   ],
   "skills": [
     { "category": "Languages", "items": ["CSS", "GraphQL", "HTML", "JavaScript", "PHP", "SCSS", "TypeScript"] },
-    { "category": "Frameworks", "items": ["Astro", "Laravel", "Lumen", "Nuxt", "Tailwind CSS", "Vue.js"] },
+    { "category": "Frameworks", "items": ["Laravel", "Lumen", "Nuxt", "Tailwind CSS", "Vue.js"] },
     { "category": "Infrastructure", "items": ["Amazon Web Services", "Apache", "Cloudflare", "Docker", "Firebase", "GitHub Actions", "MySQL", "Nginx", "PostgreSQL"] },
     { "category": "Tools", "items": ["Claude", "Figma", "Git", "Insomnia", "Jira"] }
   ]
