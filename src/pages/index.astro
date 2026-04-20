@@ -8,6 +8,7 @@ import EmailIcon from '../components/icons/Email.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import { skills } from '../lib/data';
 
+import imgLive          from '../assets/projects/0d731b09-659c-44a7-bd03-bb18b4d1285c_live.png';
 import imgHippoManager   from '../assets/projects/28578acc-075f-4e65-911a-4d5a31c765ad_hippomanager.png';
 import imgSchedule       from '../assets/projects/217ee44f-7401-4c20-97d4-0df874372f27_schedule.webp';
 import imgAppointments   from '../assets/projects/2eeffb7d-0f17-44a5-b805-a95a870cd7c4_appointments.webp';
@@ -24,6 +25,14 @@ import imgBranding       from '../assets/projects/e6054a9b-61c8-4904-9e82-5c4e09
 import imgStaffDev       from '../assets/projects/c6b838a4-ac63-4bf8-8938-6105d716f139_staffdev.webp';
 
 const projects = [
+  {
+    title: 'The L.I.V.E. Outreach',
+    client: 'L.I.V.E. Outreach',
+    description: 'Website for a Detroit nonprofit serving foster youth and families. I built eighteen pages with an in-browser editor so staff can update programs, team members, and news posts themselves. Fully accessible, hosted on nonprofit-eligible tiers for roughly $15 a year.',
+    image: imgLive,
+    href: 'https://theliveoutreach.org',
+    tags: ['Astro', 'TypeScript', 'Tailwind CSS', 'Cloudflare'],
+  },
   {
     title: 'Hippo Manager 2.0',
     client: 'Hippo Manager Software, Inc.',
