@@ -60,6 +60,11 @@ const navLinks = [
     })} />
     <ViewTransitions />
     <ThemeScript />
+    <noscript>
+      <style>
+        [data-animate] { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
   </head>
   <body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -148,7 +153,7 @@ const navLinks = [
       <img id="lightbox-img" src="" alt="" />
     </dialog>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
 
@@ -210,9 +215,10 @@ const navLinks = [
       const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
       const lightboxClose = document.getElementById('lightbox-close');
 
-      document.querySelectorAll('.lightbox-trigger').forEach(img => {
-        img.addEventListener('click', () => {
-          const el = img as HTMLImageElement;
+      document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const el = trigger.querySelector('img') as HTMLImageElement | null;
+          if (!el) return;
           if (window.innerWidth < 768) {
             window.open(el.src, '_blank', 'noopener noreferrer');
             return;

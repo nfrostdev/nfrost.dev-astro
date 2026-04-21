@@ -48,6 +48,7 @@ html[data-theme="dark"]  .site-logo   { color: #ffffff; }
 
 @media (prefers-reduced-motion: reduce) {
   .site-logo { transition: none; }
+  .animate-ping { animation: none; }
 }
 
 html[data-theme="light"] :focus-visible {

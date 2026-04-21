@@ -24,18 +24,22 @@ const hrefLabel = href ? new URL(href).hostname.replace(/^www\./, '') : '';
 
   <!-- Image -->
   {image && (
-    <div class="project-image w-full lg:w-3/5 rounded-lg shrink-0 border border-zinc-800 cursor-pointer md:cursor-zoom-in transition-transform duration-300 hover:scale-[1.02] overflow-hidden">
+    <button
+      type="button"
+      class="lightbox-trigger project-image block w-full lg:w-3/5 rounded-lg shrink-0 border border-zinc-800 cursor-pointer md:cursor-zoom-in transition-transform duration-300 hover:scale-[1.02] overflow-hidden"
+      aria-label={`Enlarge ${title} screenshot`}
+    >
       <Image
         src={image}
         alt={`${title} screenshot`}
-        class="lightbox-trigger w-full object-cover object-top rounded-lg shadow-lg"
+        class="w-full object-cover object-top rounded-lg shadow-lg"
         loading={isFirst ? 'eager' : 'lazy'}
         fetchpriority={isFirst ? 'high' : 'auto'}
         decoding="async"
         widths={[600, 900, 1200]}
         sizes="(max-width: 1024px) 100vw, 60vw"
       />
-    </div>
+    </button>
   )}
 
   <!-- Text -->
