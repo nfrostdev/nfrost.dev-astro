@@ -94,6 +94,11 @@ html[data-theme="light"] .project-image {
   box-shadow: 0 2px 16px oklch(40% .05 240 / 0.12);
 }
 
+/* Project links hover to brand blue in light mode */
+html[data-theme="light"] .project-link:hover {
+  color: #003DA6;
+}
+
 /* Tech badges */
 html[data-theme="light"] .tech-badge {
   background-color: oklch(99% .003 240);
