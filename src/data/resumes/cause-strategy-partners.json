@@ -1,0 +1,52 @@
+{
+  "company": "Cause Strategy Partners",
+  "position": "Full Stack Engineer",
+  "applied": "2026-04-30",
+  "url": "https://causestrategypartners.com/careers/full-stack-engineer-laravel-livewire-tailwind-css",
+  "experience": [
+    {
+      "company": "Hippo Manager Software, Inc.",
+      "role": "Engineering Manager",
+      "period": "2022 - 2025",
+      "bullets": [
+        "Maintained and extended a Laravel and Vue.js SaaS platform end-to-end across PHP back-end, GraphQL APIs, MySQL, and front-end features.",
+        "Owned LEMP-style AWS infrastructure (Nginx, MySQL, PHP) and migrated local and cloud environments to Docker.",
+        "Reduced AWS costs by over $6,000/month through infrastructure refinements.",
+        "Built and maintained CI/CD pipelines and GitHub Actions workflows.",
+        "Gathered requirements directly from veterinary clients and shipped features through platform end-of-life after acquisition."
+      ]
+    },
+    {
+      "company": "Kalamazoo Valley Community College",
+      "role": "Technical Lead",
+      "period": "2017 - 2022",
+      "bullets": [
+        "Shipped 11+ web applications end-to-end using PHP (Laravel and Lumen), Vue.js, and MySQL or PostgreSQL.",
+        "Built responsive, accessible front-end components with Tailwind CSS and vanilla JavaScript, meeting WCAG standards.",
+        "Replaced legacy institutional systems and automated manual workflows across HR, academic departments, and student services.",
+        "Built system integrations including cron-based sync from network-restricted Oracle databases with multi-table joins.",
+        "Ran requirement-gathering with non-technical stakeholders, translating operational needs into reliable software."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "L.I.V.E. Outreach",
+      "company": "L.I.V.E. Outreach (nonprofit)",
+      "tech": "Astro, TypeScript, Tailwind CSS, Keystatic, Cloudflare",
+      "description": "Built and launched a full nonprofit website with an in-browser CMS, automated social share cards, structured data for search and AI discoverability, and a 100/100 accessibility score on every page. Runs on nonprofit-eligible tiers for approximately $15/year."
+    },
+    {
+      "name": "Hippo Manager 2.0",
+      "company": "Hippo Manager Software, Inc.",
+      "tech": "Laravel, Vue.js, GraphQL, MySQL, Amazon Web Services (AWS), Docker, Tailwind CSS",
+      "description": "Cloud-based SaaS platform for veterinary clinics covering billing, scheduling, client management, reporting, and treatments. Laravel back-end on a LEMP-style AWS stack with MySQL persistence."
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["CSS", "GraphQL", "HTML", "JavaScript", "PHP", "SCSS", "TypeScript"] },
+    { "category": "Frameworks", "items": ["Astro", "Laravel", "Lumen", "Nuxt", "Tailwind CSS", "Vue.js"] },
+    { "category": "Infrastructure", "items": ["Amazon Web Services", "Cloudflare", "Docker", "GitHub Actions", "Linux", "MySQL", "Nginx", "PostgreSQL"] },
+    { "category": "Tools", "items": ["Claude", "Figma", "Git", "Insomnia", "Jira"] }
+  ]
+}
