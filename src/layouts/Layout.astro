@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import onestFontUrl from '@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url';
 import Logo from '../components/Logo.astro';
 import ThemeScript from '../components/ThemeScript.astro';
@@ -58,7 +58,7 @@ const navLinks = [
       },
       "sameAs": ["https://github.com/nfrostdev"]
     })} />
-    <ViewTransitions />
+    <ClientRouter />
     <ThemeScript />
     <noscript>
       <style>
