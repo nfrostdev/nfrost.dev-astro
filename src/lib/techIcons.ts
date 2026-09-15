@@ -86,6 +86,7 @@ export const urlMap: Record<string, string> = {
   'Insomnia':             'https://insomnia.rest',
   'JavaScript':           'https://developer.mozilla.org/docs/Web/JavaScript',
   'Jira':                 'https://atlassian.com/software/jira',
+  'Keystatic':            'https://keystatic.com',
   'Laravel':              'https://laravel.com',
   'Lumen':                'https://lumen.laravel.com',
   'MySQL':                'https://mysql.com',

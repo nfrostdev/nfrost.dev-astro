@@ -8,7 +8,8 @@ import EmailIcon from '../components/icons/Email.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import { skills } from '../lib/data';
 
-import imgLive          from '../assets/projects/0d731b09-659c-44a7-bd03-bb18b4d1285c_live.png';
+import imgHeroLaw        from '../assets/projects/84ea55be-0c8c-4436-bd93-2cc963e7c0f5_herolaw.png';
+import imgLive        from '../assets/projects/0d731b09-659c-44a7-bd03-bb18b4d1285c_live.png';
 import imgHippoManager   from '../assets/projects/28578acc-075f-4e65-911a-4d5a31c765ad_hippomanager.png';
 import imgSchedule       from '../assets/projects/217ee44f-7401-4c20-97d4-0df874372f27_schedule.webp';
 import imgAppointments   from '../assets/projects/2eeffb7d-0f17-44a5-b805-a95a870cd7c4_appointments.webp';
@@ -25,6 +26,14 @@ import imgBranding       from '../assets/projects/e6054a9b-61c8-4904-9e82-5c4e09
 import imgStaffDev       from '../assets/projects/c6b838a4-ac63-4bf8-8938-6105d716f139_staffdev.webp';
 
 const projects = [
+  {
+    title: 'Hettinger & Robinson',
+    client: 'Hettinger & Robinson, PLC',
+    description: 'Website for a Kalamazoo estate planning and bankruptcy firm. I replaced their subscription site with one the attorneys can edit themselves, keeping every old link working. Larger type and simple navigation suit their older clients.',
+    image: imgHeroLaw,
+    href: 'https://www.herolawplc.com',
+    tags: ['Astro', 'TypeScript', 'Tailwind CSS', 'Keystatic', 'Cloudflare'],
+  },
   {
     title: 'The L.I.V.E. Outreach',
     client: 'L.I.V.E. Outreach',
