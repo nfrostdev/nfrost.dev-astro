@@ -1,0 +1,52 @@
+{
+  "company": "Beacon Specialized Living",
+  "position": "Front-End Developer",
+  "applied": "2026-09-15",
+  "url": "https://www.indeed.com/viewjob?jk=5c20540484497e52",
+  "experience": [
+    {
+      "company": "Hippo Manager Software, Inc.",
+      "role": "Engineering Manager",
+      "period": "2022 - 2025",
+      "bullets": [
+        "Led engineering for a cloud-based veterinary practice management platform used daily by clinic staff.",
+        "Led architecture and code review across a Vue.js front-end, Laravel back-end, and AWS infrastructure.",
+        "Created Figma prototypes and turned direct clinic feedback into product direction.",
+        "Reduced AWS costs by over $6,000/month and migrated environments to Docker.",
+        "Maintained the platform through end of life after acquisition by Shepherd Veterinary Software."
+      ]
+    },
+    {
+      "company": "Kalamazoo Valley Community College",
+      "role": "Technical Lead",
+      "period": "2017 - 2022",
+      "bullets": [
+        "Shipped 11+ web applications end-to-end, spanning Vue.js front-ends, Node.js and PHP APIs, and CI/CD.",
+        "Built admin tools and guided workflows, including a compliance-enforcing policy agreement system.",
+        "Integrated single sign-on across systems, including a custom Apereo CAS authentication pass-through.",
+        "Built hourly data sync pipelines from network-restricted Oracle sources.",
+        "Shipped independently from specs, partnering with designers, developers, HR, and faculty."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Hippo Manager 2.0",
+      "company": "Hippo Manager Software, Inc.",
+      "tech": "Vue.js, Laravel, GraphQL, MySQL, Amazon Web Services (AWS), Docker, Tailwind CSS",
+      "description": "Cloud-based practice management platform for veterinary clinics covering billing, scheduling, client management, reporting, and treatments."
+    },
+    {
+      "name": "Acceptable Use Policy Agreement",
+      "company": "Kalamazoo Valley Community College",
+      "tech": "Vue.js, .NET, PostgreSQL, Apereo CAS, Docker, Tailwind CSS",
+      "description": "Required annual policy agreement for all students and employees. Built the user flow, a group-restricted admin interface, and the SSO integration that enforces compliance."
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["CSS", "GraphQL", "HTML", "JavaScript", "PHP", "SCSS", "TypeScript"] },
+    { "category": "Frameworks", "items": ["Laravel", "Node.js", "Nuxt", "Tailwind CSS", "Vue.js"] },
+    { "category": "Infrastructure", "items": ["Amazon Web Services", "Cloudflare", "Docker", "Firebase", "GitHub Actions", "MySQL", "Nginx", "PostgreSQL"] },
+    { "category": "Tools", "items": ["Claude Code", "Figma", "Git", "Insomnia", "Jira"] }
+  ]
+}
