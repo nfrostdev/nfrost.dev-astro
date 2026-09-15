@@ -90,7 +90,7 @@ export const GET: APIRoute = async () => {
                             letterSpacing: '-0.02em',
                             maxWidth: '800px',
                           },
-                          children: 'Software should work for people, not vice versa.',
+                          children: 'Software should work for people.',
                         },
                       },
                     ],
