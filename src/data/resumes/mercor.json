@@ -1,0 +1,52 @@
+{
+  "company": "Mercor",
+  "position": "Frontend Code Evaluation Specialist",
+  "applied": "2026-10-17",
+  "url": "https://jobright.ai/s/60ysJo",
+  "headline": "Frontend Engineer",
+  "summary": "Frontend engineer with 8+ years of hand-written HTML, CSS, and JavaScript, from pixel-perfect design-to-code to legacy web layouts. Accessibility-focused (ARIA, landmarks, heading hierarchy). Experienced code reviewer of human and AI-generated code.",
+  "experience": [
+    {
+      "company": "Hippo Manager Software, Inc.",
+      "role": "Engineering Manager",
+      "period": "2022 - 2025",
+      "bullets": [
+        "Led code review across a Vue.js and Tailwind CSS front-end, enforcing layout fidelity, semantic markup, and maintainable CSS.",
+        "Translated Figma prototypes into pixel-perfect, responsive UI for a veterinary SaaS platform.",
+        "Debugged layout and rendering with browser DevTools; managed Docker, Git, and AWS from the command line.",
+        "Reduced AWS costs by over $6,000/month and mentored developers on front-end standards."
+      ]
+    },
+    {
+      "company": "Kalamazoo Valley Community College",
+      "role": "Technical Lead",
+      "period": "2017 - 2022",
+      "bullets": [
+        "Shipped 11+ frontend web applications with hand-written HTML, CSS, JavaScript, and CLI data seeders.",
+        "Rebuilt legacy web layouts, including an early-2000s department directory, as semantic, responsive pages.",
+        "Built layouts with Flexbox, CSS Grid, and media queries, including a concurrent-session event schedule.",
+        "Met WCAG standards with ARIA, semantic landmarks, heading hierarchy, and tested color contrast."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "L.I.V.E. Outreach",
+      "company": "L.I.V.E. Outreach (nonprofit)",
+      "tech": "Astro, TypeScript, Tailwind CSS, Cloudflare",
+      "description": "Eighteen-page nonprofit website with an in-browser CMS, semantic landmarks, and a 100/100 accessibility score on every page."
+    },
+    {
+      "name": "Hettinger & Robinson",
+      "company": "Freelance",
+      "tech": "Astro, TypeScript, Tailwind CSS, Keystatic, Cloudflare",
+      "description": "Replaced a law firm's legacy subscription site with an accessible, responsive rebuild, preserving every legacy URL."
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["CSS", "HTML", "JavaScript", "PHP", "SCSS", "TypeScript"] },
+    { "category": "Frontend", "items": ["Accessibility (ARIA)", "CSS Grid", "Flexbox", "Media Queries", "Responsive Design", "Semantic HTML", "WCAG"] },
+    { "category": "Frameworks", "items": ["Astro", "Hugo", "Laravel", "Node.js", "Nuxt", "Tailwind CSS", "Vue.js"] },
+    { "category": "Tools", "items": ["Browser DevTools", "Claude Code", "Command Line", "Docker", "Figma", "Git", "Lighthouse"] }
+  ]
+}
