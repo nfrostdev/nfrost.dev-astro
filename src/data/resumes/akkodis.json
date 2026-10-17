@@ -1,0 +1,52 @@
+{
+  "company": "Akkodis",
+  "position": "UX Engineer / Front End Engineer",
+  "applied": "2026-10-17",
+  "url": "https://jobright.ai/s/8BcpYt",
+  "headline": "UX Engineer",
+  "summary": "UX engineer with a visual communications background and 8+ years of front-end application development. Owns the full UX lifecycle, from user research and Figma prototypes to production Vue.js, Astro, and TypeScript, with WCAG accessibility standards and reusable component systems built in.",
+  "experience": [
+    {
+      "company": "Hippo Manager Software, Inc.",
+      "role": "Engineering Manager",
+      "period": "2022 - 2025",
+      "bullets": [
+        "Owned UX for a veterinary SaaS platform, running user research directly with clinics and turning feedback into product direction.",
+        "Designed wireframes and Figma prototypes, then shipped them as responsive Vue.js and Tailwind CSS interfaces.",
+        "Set front-end UX standards and reusable component patterns through code review across the team.",
+        "Partnered with back-end and product stakeholders to turn reporting data into usable dashboards and workflows."
+      ]
+    },
+    {
+      "company": "Kalamazoo Valley Community College",
+      "role": "Technical Lead",
+      "period": "2017 - 2022",
+      "bullets": [
+        "Shipped 11+ user-centered web applications end-to-end, from requirement gathering to production deployment.",
+        "Built reusable Vue.js component systems shared across directory, scheduling, and portal applications.",
+        "Delivered accessible interfaces meeting WCAG standards, including accessible contrast ratios for institutional brand colors.",
+        "Redesigned a daily sign-in flow that frustrated staff, routing users straight to their intended service."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "L.I.V.E. Outreach",
+      "company": "L.I.V.E. Outreach (nonprofit)",
+      "tech": "Astro, TypeScript, Tailwind CSS, Cloudflare",
+      "description": "Designed and built an eighteen-page nonprofit site with an in-browser CMS and a 100/100 accessibility score on every page."
+    },
+    {
+      "name": "Hippo Manager 2.0",
+      "company": "Hippo Manager Software, Inc.",
+      "tech": "Vue.js, TypeScript, Tailwind CSS, Figma, Laravel, GraphQL, MySQL",
+      "description": "Cloud-based practice management platform for veterinary clinics covering billing, scheduling, client management, reporting, and treatments."
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["CSS3", "GraphQL", "HTML5", "JavaScript", "PHP", "SCSS", "TypeScript"] },
+    { "category": "Frameworks", "items": ["Astro", "Laravel", "Node.js", "Nuxt", "Tailwind CSS", "Vue.js"] },
+    { "category": "UX & Design", "items": ["Accessibility (WCAG)", "Design Systems", "Prototyping", "Responsive Design", "User Research", "Visual Communications", "Wireframing"] },
+    { "category": "Tools", "items": ["Claude Code", "Docker", "Figma", "Git", "GitHub Actions", "Jira"] }
+  ]
+}
