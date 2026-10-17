@@ -1,0 +1,52 @@
+{
+  "company": "Relocity",
+  "position": "Senior Full-Stack Engineer (Laravel / Vue.js)",
+  "applied": "2026-10-17",
+  "url": "https://jobright.ai/s/5oQn9K",
+  "headline": "Senior Full-Stack Engineer",
+  "summary": "Full-stack engineer with 8+ years of Laravel/PHP and Vue.js, from database design and REST APIs to customer-facing UI. Product-minded, autonomous, and uses AI tools like Claude Code daily.",
+  "experience": [
+    {
+      "company": "Hippo Manager Software, Inc.",
+      "role": "Engineering Manager",
+      "period": "2022 - 2025",
+      "bullets": [
+        "Led full-stack development of a Laravel, Vue.js, and MySQL SaaS platform on a fully remote team.",
+        "Owned architecture, code reviews, and debugging; partnered with product and design on Figma prototypes.",
+        "Wrote PHPUnit tests to grow coverage and worked the Laravel 8 to 10 upgrade path.",
+        "Migrated environments to Docker, ran CI/CD with GitHub Actions, and reduced AWS costs by over $6,000/month."
+      ]
+    },
+    {
+      "company": "Kalamazoo Valley Community College",
+      "role": "Technical Lead",
+      "period": "2017 - 2022",
+      "bullets": [
+        "Shipped 11+ full-stack applications with PHP and Laravel REST APIs, Vue.js front-ends, and CI/CD.",
+        "Designed object-oriented MVC back-ends and normalized data models.",
+        "Optimized hourly data sync from a legacy Oracle schema with seven-table joins into MySQL and PostgreSQL.",
+        "Owned projects autonomously, from requirements gathering to documentation and deployment."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Hippo Manager 2.0",
+      "company": "Hippo Manager Software, Inc.",
+      "tech": "Laravel, PHP, Vue.js, GraphQL, MySQL, Docker, Amazon Web Services (AWS), Tailwind CSS",
+      "description": "Cloud-based practice management platform for veterinary clinics covering billing, scheduling, client management, reporting, and treatments."
+    },
+    {
+      "name": "Taste for Blood Log Insights",
+      "company": "Personal project",
+      "tech": "Vue.js 3, Nuxt, TypeScript, Pinia, PHP, GraphQL, GitHub Actions, Firebase",
+      "description": "Elder Scrolls Online combat log analysis platform with a PHP API layer and a browser extension."
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["CSS", "GraphQL", "HTML", "JavaScript", "PHP", "SQL", "TypeScript"] },
+    { "category": "Frameworks", "items": ["Laravel", "Lumen", "Nuxt", "Pinia", "Tailwind CSS", "Vue.js"] },
+    { "category": "Infrastructure", "items": ["Amazon Web Services", "CI/CD", "Docker", "GitHub Actions", "Linux", "MySQL", "Nginx", "PostgreSQL"] },
+    { "category": "Tools", "items": ["Claude Code", "Cypress", "Figma", "Git", "Jira", "PHPUnit", "Playwright"] }
+  ]
+}
