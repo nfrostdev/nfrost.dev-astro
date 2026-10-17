@@ -1,0 +1,52 @@
+{
+  "company": "Software International",
+  "position": "Senior PHP Developer",
+  "applied": "2026-10-17",
+  "url": "https://jobright.ai/s/7f3MBG",
+  "headline": "Senior PHP Developer",
+  "summary": "PHP developer with 8+ years building and maintaining Laravel applications backed by MySQL, RESTful APIs, and AWS. Hands-on with billing and invoicing logic, transactional email, Linux system administration, and integrating multiple databases and data sources.",
+  "experience": [
+    {
+      "company": "Hippo Manager Software, Inc.",
+      "role": "Engineering Manager",
+      "period": "2022 - 2025",
+      "bullets": [
+        "Built and maintained a Laravel (PHP) and MySQL platform for veterinary clinics, including complex billing and invoicing.",
+        "Set up SMTP email dispatching and templates for client reminders and transactional notifications.",
+        "Administered Linux servers and AWS infrastructure; reduced AWS costs by over $6,000/month and migrated to Docker.",
+        "Owned the GitHub organization, branching and merging strategy, code review, and system architecture decisions."
+      ]
+    },
+    {
+      "company": "Kalamazoo Valley Community College",
+      "role": "Technical Lead",
+      "period": "2017 - 2022",
+      "bullets": [
+        "Designed and built PHP and Node.js RESTful APIs with JSON responses for 11+ web applications.",
+        "Integrated multiple data sources, syncing network-restricted Oracle databases to MySQL and PostgreSQL hourly.",
+        "Architected object-oriented Laravel MVC back-ends and data models for new systems from scratch.",
+        "Configured SMTP email templates and troubleshot production issues across Linux servers."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Hippo Manager 2.0",
+      "company": "Hippo Manager Software, Inc.",
+      "tech": "PHP, Laravel, MySQL, GraphQL, Vue.js, Amazon Web Services (AWS), Docker",
+      "description": "Live SaaS practice management platform covering billing, invoicing, scheduling, client management, and reporting."
+    },
+    {
+      "name": "Staff Development",
+      "company": "Kalamazoo Valley Community College",
+      "tech": "PHP, Laravel, MySQL, Oracle Database, Apereo CAS",
+      "description": "Employee training and onboarding registration system. Owned the back-end MVC architecture and data model, with attendance tracking and iCalendar export."
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["CSS3", "HTML5", "JavaScript", "JSON", "PHP", "SQL", "TypeScript"] },
+    { "category": "Frameworks", "items": ["Laravel", "Lumen", "Node.js", "Nuxt", "Tailwind CSS", "Vue.js"] },
+    { "category": "Infrastructure", "items": ["Amazon Web Services", "Apache", "Docker", "Linux", "MySQL", "Nginx", "Oracle Database", "PostgreSQL"] },
+    { "category": "Tools", "items": ["Claude Code", "Git", "GitHub Actions", "GraphQL", "Insomnia", "Jira", "SMTP"] }
+  ]
+}
