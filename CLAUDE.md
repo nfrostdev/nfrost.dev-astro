@@ -78,6 +78,8 @@ src/
 - Tailored resumes: JSON in `src/data/resumes/` rendered at `/resume/[slug]`.
 - Dashboard: `/resume/all` lists all tailored resumes sorted by date.
 - JSON override arrays are full replacements, not diffs.
+- Optional `headline` (replaces "Engineering Manager" under the name) and `summary` (adds a Summary section) fields help ATS title and summary matching.
+- Keep tailored resumes to one page. With a summary, budget roughly 1,150-1,300 characters across bullets, project descriptions, and summary (4 bullets per job).
 - `_`-prefixed JSON files are ignored. `_example.json` serves as template.
 - Tailored pages have `noindex` meta and are excluded from sitemap.
 - Print optimized: `@page letter`, blue header/footer preserved, toolbar hidden.

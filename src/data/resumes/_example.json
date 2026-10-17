@@ -3,6 +3,8 @@
   "position": "Senior Software Engineer",
   "applied": "2026-03-17",
   "url": "https://example.com/jobs/123",
+  "headline": "Senior Software Engineer",
+  "summary": "Optional. Two or three sentences shown above Experience. Omit both fields to show the default Engineering Manager title and no summary.",
   "experience": [
     {
       "company": "Hippo Manager Software, Inc.",
