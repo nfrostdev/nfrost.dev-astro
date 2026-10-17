@@ -1,0 +1,52 @@
+{
+  "company": "Bitwarden",
+  "position": "Senior Front End Software Engineer (Autofill)",
+  "applied": "2026-10-17",
+  "url": "https://jobright.ai/s/5gbJw2",
+  "headline": "Senior Front End Software Engineer",
+  "summary": "Front-end engineer with 8+ years of vanilla JavaScript and Vue.js, including a cross-browser extension that uses content scripts to manipulate a third-party DOM. Privacy and security advocate; Bitwarden user for 5+ years who drove its adoption across an entire college.",
+  "experience": [
+    {
+      "company": "Hippo Manager Software, Inc.",
+      "role": "Engineering Manager",
+      "period": "2022 - 2025",
+      "bullets": [
+        "Led code review and knowledge sharing across a Vue.js front-end, documenting complex solutions and teaching engineers.",
+        "Debugged browser UI behavior, DOM, and form issues in a SaaS platform used daily by veterinary clinics.",
+        "Owned the GitHub organization and Git workflow, plus AWS infrastructure; reduced AWS costs by over $6,000/month.",
+        "Recommended Bitwarden for team credential management, as on every team since."
+      ]
+    },
+    {
+      "company": "Kalamazoo Valley Community College",
+      "role": "Technical Lead",
+      "period": "2017 - 2022",
+      "bullets": [
+        "Shipped 11+ web applications in Vue.js and vanilla JavaScript, including client-side search built on direct DOM work.",
+        "Rebuilt the daily login flow, routing users to their intended service after authentication.",
+        "Integrated single sign-on via Apereo CAS, including a custom multi-system authentication pass-through.",
+        "Convinced the college to purchase and adopt Bitwarden for password management."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Taste for Blood Browser Extension",
+      "company": "Personal project (Chrome and Firefox)",
+      "tech": "JavaScript, Content Scripts, Manifest V3, Manifest V2",
+      "description": "Injects a content script into ESO Logs, a third-party site, cloning its native navigation to add a deep link and tracking single-page URL changes to keep it in sync."
+    },
+    {
+      "name": "Taste for Blood Log Insights",
+      "company": "Personal project",
+      "tech": "Nuxt, Vue.js, TypeScript, Pinia, Tailwind CSS, PHP, GraphQL, Firebase",
+      "description": "Combat log analysis platform for The Elder Scrolls Online, surfacing buff uptimes, damage breakdowns, and group composition from the ESO Logs GraphQL API."
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["CSS", "GraphQL", "HTML", "JavaScript", "PHP", "SCSS", "TypeScript"] },
+    { "category": "Browser", "items": ["Browser Extensions", "Content Scripts", "DOM Manipulation", "Manifest V3", "Web APIs"] },
+    { "category": "Frameworks", "items": ["Astro", "Laravel", "Nuxt", "Pinia", "Tailwind CSS", "Vue.js"] },
+    { "category": "Tools", "items": ["Bitwarden", "Claude Code", "Cypress", "Git", "GitHub Actions", "Playwright"] }
+  ]
+}
