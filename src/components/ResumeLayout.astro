@@ -36,9 +36,11 @@ interface Props {
   experience: Experience[];
   projects: Project[];
   skills: SkillGroup[];
+  headline?: string;
+  summary?: string;
 }
 
-const { title, description, keywords, noindex = false, experience, projects, skills } = Astro.props;
+const { title, description, keywords, noindex = false, experience, projects, skills, headline = 'Engineering Manager', summary } = Astro.props;
 ---
 
 <!doctype html>
@@ -83,7 +85,7 @@ const { title, description, keywords, noindex = false, experience, projects, ski
             <Logo class="resume-logo" />
             <div>
               <p class="resume-name">Nick Frost</p>
-              <p class="resume-title">Engineering Manager</p>
+              <p class="resume-title">{headline}</p>
             </div>
           </div>
           <div class="resume-contact">
@@ -104,6 +106,13 @@ const { title, description, keywords, noindex = false, experience, projects, ski
       </div>
 
       <div class="resume-body">
+        {summary && (
+          <section class="resume-section">
+            <h2 class="resume-heading">Summary</h2>
+            <p class="resume-summary">{summary}</p>
+          </section>
+        )}
+
         <!-- Experience -->
         <section class="resume-section">
           <h2 class="resume-heading">Experience</h2>
@@ -370,6 +379,7 @@ const { title, description, keywords, noindex = false, experience, projects, ski
     color: #003DA6;
     margin-bottom: 0.25rem;
   }
+  .resume-summary,
   .resume-project-desc {
     font-size: 0.8125rem;
     color: #3f3f46;
