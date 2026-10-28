@@ -8,6 +8,7 @@ import ThemeIcons from './icons/ThemeIcons.astro';
 import GlobeIcon from './icons/Globe.astro';
 import EmailIcon from './icons/Email.astro';
 import GitHubIcon from './icons/GitHub.astro';
+import LinkedInIcon from './icons/LinkedIn.astro';
 
 interface SkillGroup {
   category: string;
@@ -100,6 +101,10 @@ const { title, description, keywords, noindex = false, experience, projects, ski
             <span class="resume-contact-item">
               <GitHubIcon size={13} />
               github.com/nfrostdev
+            </span>
+            <span class="resume-contact-item">
+              <LinkedInIcon size={13} />
+              linkedin.com/in/nfrost-dev
             </span>
           </div>
         </div>
@@ -286,10 +291,10 @@ const { title, description, keywords, noindex = false, experience, projects, ski
     color: rgba(255, 255, 255, 0.9);
   }
   .resume-contact {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 1.5rem;
+    row-gap: 0.25rem;
   }
   .resume-contact-item {
     display: inline-flex;
@@ -425,6 +430,9 @@ const { title, description, keywords, noindex = false, experience, projects, ski
       flex-direction: column;
       align-items: flex-start;
     }
+    .resume-contact {
+      grid-template-columns: 1fr;
+    }
     .resume-body {
       padding: 1.5rem 1.25rem;
     }
@@ -476,8 +484,8 @@ const { title, description, keywords, noindex = false, experience, projects, ski
       gap: 1rem;
     }
     .resume-contact {
-      flex-wrap: nowrap !important;
-      gap: 1rem;
+      grid-template-columns: auto auto !important;
+      column-gap: 1rem;
     }
     .resume-contact span {
       font-size: 0.75rem;

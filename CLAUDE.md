@@ -45,7 +45,7 @@ src/
 - Keep wording concise. No filler, no fluff.
 - Site copy: first-person, personal, direct tone.
 - Resume copy: professional bullet-point style (intentionally differs from site).
-- No LinkedIn references anywhere.
+- No LinkedIn on the site. Resumes only: header contact links `linkedin.com/in/nfrost-dev`.
 - Consistent title case on button labels ("Get in Touch", "View Projects").
 
 ## Design System
