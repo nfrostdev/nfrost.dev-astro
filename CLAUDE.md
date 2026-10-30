@@ -3,7 +3,7 @@
 ## Project
 
 Personal portfolio site for Nick Frost, Engineering Manager based in Kalamazoo, MI.
-Built with Astro 5 + Tailwind CSS v4. Static output. Deployed to Cloudflare Pages.
+Built with Astro 7 + Tailwind CSS v4. Static output. Deployed to Cloudflare Pages.
 
 ## Commands
 
@@ -14,13 +14,13 @@ Built with Astro 5 + Tailwind CSS v4. Static output. Deployed to Cloudflare Page
 
 ## Stack
 
-- Astro 5 (static, no JS frameworks, Astro components + vanilla JS only)
+- Astro 7 (static, no JS frameworks, Astro components + vanilla JS only)
 - Tailwind CSS v4 via `@tailwindcss/vite`
 - Font: Onest (self-hosted via `@fontsource-variable/onest`, preloaded)
 - `satori` + `@resvg/resvg-js` for OG image generation
 - `simple-icons` for tech badge SVG icons
 - `@astrojs/sitemap` (filters out tailored resume paths)
-- View Transitions via Astro `<ViewTransitions />`
+- Client-side navigation via Astro `<ClientRouter />` (in Layout, ResumeLayout, and `resume/all.astro`)
 
 ## File Structure
 
@@ -71,6 +71,9 @@ src/
 - Print stylesheets: don't use aggressive resets like `* { background: transparent !important }` as they kill intentional background colors (resume blue header/footer).
 - Resume paper is always light regardless of theme; background/toolbar follow theme.
 - Check for typographic orphans in print layouts proactively.
+- `<ClientRouter />` runs each bundled `<script>` only once per session, not on every navigation. Put page setup (listeners, IntersectionObserver) inside `document.addEventListener('astro:page-load', ...)` or it dies after home -> resume -> Back to Site (sections stuck at opacity 0, dead buttons).
+- Both layouts' `astro:page-load` handlers fire on every page once each has been visited, and both use `#theme-toggle`. Bind it with the `bindOnce` helper (once per element) or a click toggles twice and does nothing.
+- `satori` is pinned to `^0.29`: 0.63 shifts the OG image layout (absolute-positioned `nfrost.dev` label goes off-canvas). Its audit advisory (SVG escaping) does not apply since the OG text is hardcoded. Compare `dist/og.png` before and after any satori bump.
 
 ## Resume System
 
